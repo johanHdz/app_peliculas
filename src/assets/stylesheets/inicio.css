@@ -1,0 +1,29 @@
+#app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osz-font-smoothing: grayscale;
+    text-align: center;
+    color: #0080ff;
+    margin-top: 60px;
+    /*width: 100%;*/
+}
+
+#inspire {
+    font-family: 'Avenir', Arial, Helvetica, sans-serif;
+}
+
+.container.fill-height {
+    align-items: normal;
+}
+
+a.side_bar_link {
+    text-decoration: none;
+}
+
+.v-card__title-primary, .v-card__text {
+    text-align: left;
+}
+
+.v-card {
+    height: 100% !important;
+}
