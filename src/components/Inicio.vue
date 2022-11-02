@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <v-layout row wrap>
     <v-flex>
       <v-card>
@@ -43,7 +43,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn text color="purple">Calificar Pel&iacute;cula</v-btn> <!-- v-btn flat color -->
+          <v-btn text color="purple">Calificar Pel&iacute;cula</v-btn> v-btn flat color
           <v-spacer></v-spacer>
         </v-card-actions>
       </v-card>
@@ -73,7 +73,7 @@
       <v-card>
         <v-card-title primary-title>
           <div>
-            <div class="headline">La Quita Ola</div>
+            <div class="headline">La Quinta Ola</div>
             <span class="grey--text">2016 &middot; Ciencia Ficci&oacute;n
               /Acci&oacute;n &middot; 1h 52m</span>
           </div>
@@ -96,7 +96,7 @@
           <div>
             <div class="headline">Talento Ocultos</div>
             <span class="grey--text">2016 &middot; Ciencia Ficci&oacute;n
-              /Acci&oacute;n &middot; 3h 3m</span>
+              /Acci&oacute;n &middot; 2h 7m</span>
           </div>
         </v-card-title>
         <v-card-text>
@@ -137,4 +137,53 @@
       </v-card>
     </v-flex>
   </v-layout>
+</template> -->
+<template>
+  <v-layout row wrap>
+    <v-flex xs4 v-for="pelicula in peliculas" :key="pelicula._id">
+      <v-card>
+        <v-card-title primary-title>
+          <div>
+            <div class="headline">
+              <v-btn text v-bind:to="`/peliculas/${pelicula._id}`">
+                {{ pelicula.nombre }}
+              </v-btn>
+            </div>
+            <span class="grey--text">{{ pelicula.anio_pub }} &middot; {{ pelicula.genero }}</span>
+          </div>
+        </v-card-title>
+        <v-card-text>
+          {{ pelicula.descripcion }}
+        </v-card-text>
+      </v-card>
+    </v-flex>
+  </v-layout>
 </template>
+
+<script>
+import axios from 'axios';
+
+export default{
+  data() {
+    return {
+      peliculas: [],
+    };
+  },
+  mounted() {
+    this.obtenerPeliculas();
+  },
+  methods: {
+    async obtenerPeliculas() {
+      return axios({
+        method: 'get',
+        url: 'http://localhost:8081/peliculas',
+      })
+        .then((respuesta) => {
+          this.peliculas = respuesta.data.peliculas;
+        })
+        .catch(() => {
+        });
+    },
+  },
+};
+</script>
