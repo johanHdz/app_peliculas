@@ -1,9 +1,9 @@
-const EsquemPelicula = require('../modelos/Pelicula.js');
+const EsquemaPelicula = require('../modelos/Pelicula.js');
 
 module.exports.controller = (app) => {
     //Obtener todas las peliculas
     app.get('/peliculas', (req, res) => {
-        EsquemaPelicula.find({}, 'nombre descripcion anio_pub, genero',
+        EsquemaPelicula.find({}, 'nombre descripcion anio_pub genero',
         (error, peliculas) => {
             if (error) { console.log(error); }
             else {
@@ -16,7 +16,7 @@ module.exports.controller = (app) => {
 
     // Agregar una nueva pelicula
     app.post('/peliculas', (req, res) => {
-        const nuevaPelicula = new EsquemPelicula({
+        const nuevaPelicula = new EsquemaPelicula({
             nombre: req.body.nombre,
             descripcion: req.body.descripcion,
             anio_pub: req.body.anio_pub,
@@ -24,7 +24,7 @@ module.exports.controller = (app) => {
         });
 
          nuevaPelicula.save((error, pelicula) => {
-            if(erorr) {
+            if(error) {
                 console.error(error);
                 res.send(error);
             }

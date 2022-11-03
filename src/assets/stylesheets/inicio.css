@@ -20,8 +20,9 @@ a.side_bar_link {
     text-decoration: none;
 }
 
-.v-card__title-primary, .v-card__text {
-    text-align: left;
+.v-card__title, .v-card__text {
+    text-align: center;
+    /* justify-content: center; */
 }
 
 .v-card {

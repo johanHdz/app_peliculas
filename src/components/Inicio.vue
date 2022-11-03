@@ -142,14 +142,15 @@
   <v-layout row wrap>
     <v-flex xs4 v-for="pelicula in peliculas" :key="pelicula._id">
       <v-card>
-        <v-card-title primary-title>
+        <v-card-title>
           <div>
             <div class="headline">
               <v-btn text v-bind:to="`/peliculas/${pelicula._id}`">
                 {{ pelicula.nombre }}
               </v-btn>
             </div>
-            <span class="grey--text">{{ pelicula.anio_pub }} &middot; {{ pelicula.genero }}</span>
+            <span class="grey--text">{{ pelicula.anio_pub }}
+              &middot; {{ pelicula.genero }}</span>
           </div>
         </v-card-title>
         <v-card-text>

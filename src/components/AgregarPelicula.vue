@@ -7,12 +7,12 @@
     ></v-text-field>
     <v-text-field label="Descripción:"
     v-model="descripcion"
-    multi-line
+    multiline
     required
     :rules="reglasDescripcion"
     ></v-text-field>
     <v-select label="Año de publicación"
-    model="anio_pub"
+    v-model="anio_pub"
     :items="anios"
     required
     :rules="reglasAnioPub"
@@ -29,7 +29,6 @@
   </v-form>
 </template>
 <script>
-
 import axios from 'axios';
 
 export default {
