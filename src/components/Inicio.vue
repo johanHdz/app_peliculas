@@ -149,7 +149,7 @@
                 {{ pelicula.nombre }}
               </v-btn>
             </div>
-            <span class="grey--text">{{ pelicula.anio_pub }}
+            <span class="grey--text" style="font-size:1rem">{{ pelicula.anio_pub }}
               &middot; {{ pelicula.genero }}</span>
           </div>
         </v-card-title>

@@ -22,7 +22,7 @@ a.side_bar_link {
 
 .v-card__title, .v-card__text {
     text-align: center;
-    /* justify-content: center; */
+    justify-content: center;
 }
 
 .v-card {

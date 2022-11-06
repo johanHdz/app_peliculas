@@ -1,4 +1,5 @@
-const EsquemaPelicula = require('../modelos/Pelicula.js');
+const EsquemaPelicula = require('../modelos/Pelicula');
+const Calificacion = require('../modelos/Calificacion');
 
 module.exports.controller = (app) => {
     //Obtener todas las peliculas
@@ -12,6 +13,17 @@ module.exports.controller = (app) => {
                 });
             }
         });
+    });
+
+    // Obtener una sola pelicula
+    app.get('/api/peliculas/:id', (req, res) => {
+        EsquemaPelicula.findById(req.params.id, 'nombre descripcion anio_pub genero', 
+        (error, pelicula) => {
+            if(error) { console.error(error); }
+            else {
+                res.send(pelicula);
+            }
+        })
     });
 
     // Agregar una nueva pelicula
@@ -30,5 +42,26 @@ module.exports.controller = (app) => {
             }
             else res.send(pelicula);
          });
+    });
+
+    // Calificar una pelicula
+    app.post('/peliculas/calificar/:id', (req, res) => {
+        const calif = new Calificacion({
+            pelicula_id: req.params.id,
+            usuario_id: req.body.usuario_id,
+            calificacion: req.body.calificacion,
+        });
+
+        calif.save(function (error, calificacion) {
+            if(error) { console.log(error); }
+            else {
+                res.send({
+                    // pelicula_id: calif.pelicula_id,
+                    // usuario_id: calif.usuario_id,
+                    // calificacion: calif.calificacion,
+                    calificacion,
+                });
+            }
+        });
     });
 }
