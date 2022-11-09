@@ -69,7 +69,7 @@ export default{
         .then(() => {
           const peliculaId = this.$route.params.id;
           return axios({
-            methods: 'post',
+            method: 'post',
             data: {
               calificacion: estado.nota,
             },

@@ -56,10 +56,10 @@ module.exports.controller = (app) => {
             if(error) { console.log(error); }
             else {
                 res.send({
-                    // pelicula_id: calif.pelicula_id,
-                    // usuario_id: calif.usuario_id,
-                    // calificacion: calif.calificacion,
-                    calificacion,
+                    pelicula_id: calif.pelicula_id,
+                    usuario_id: calif.usuario_id,
+                    calificacion: calif.calificacion,
+                    // calificacion,
                 });
             }
         });
