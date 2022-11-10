@@ -4,6 +4,7 @@ import Inicio from '@/components/Inicio';
 import Contacto from '@/components/Contacto';
 import AgregarPelicula from '@/components/AgregarPelicula';
 import Pelicula from '@/components/Pelicula';
+import Registro from '@/components/Registro';
 
 Vue.use(Router);
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/peliculas/:id',
       name: 'Pelicula',
       component: Pelicula,
+    },
+    {
+      path: '/usuarios/registro',
+      name: 'Registro',
+      component: Registro,
     },
   ],
 });

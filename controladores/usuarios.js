@@ -13,7 +13,11 @@ module.exports.controller = (app) => {
         });
 
         Usuario.crearUsuario(nuevoUsuario, (error, usuario) => {
-            if(error) { console.error(error); }
+            if(error) {
+                console.error(error);
+                res.status(422).json({mensaje: 'Algo salió mal de nuestra parte, por favor intentelo después de unos minu'
+            });
+            }
             else
                 res.send({ usuario });
         });
