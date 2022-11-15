@@ -90,7 +90,7 @@ export default{
     async obtenerPelicula() {
       return axios({
         method: 'get',
-        url: `http://localhost:8081/api/peliculas/${this.$route.params.id}`,
+        url: `/peliculas/${this.$route.params.id}`,
       })
         .then((respuesta) => {
           this.pelicula = respuesta.data;

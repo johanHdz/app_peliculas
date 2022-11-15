@@ -1,9 +1,10 @@
 const EsquemaPelicula = require('../modelos/Pelicula');
 const Calificacion = require('../modelos/Calificacion');
+const passport = require('passport');
 
 module.exports.controller = (app) => {
     //Obtener todas las peliculas
-    app.get('/peliculas', (req, res) => {
+    app.get('/peliculas', function(req, res) {
         EsquemaPelicula.find({}, 'nombre descripcion anio_pub genero',
         (error, peliculas) => {
             if (error) { console.log(error); }
@@ -16,7 +17,7 @@ module.exports.controller = (app) => {
     });
 
     // Obtener una sola pelicula
-    app.get('/api/peliculas/:id', (req, res) => {
+    app.get('/peliculas/:id', (req, res) => {
         EsquemaPelicula.findById(req.params.id, 'nombre descripcion anio_pub genero', 
         (error, pelicula) => {
             if(error) { console.error(error); }

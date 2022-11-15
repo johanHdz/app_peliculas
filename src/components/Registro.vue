@@ -54,7 +54,7 @@ export default {
                         email: this.email,
                         contrasenia: this.contrasenia,
                     },
-                    url: 'http://localhost:8081/usuarios/registro',
+                    url: '/usuarios/registro',
                     headers: {
                         'Content-Type': 'application/json'
                     },
@@ -72,7 +72,7 @@ export default {
                     this.$swal('Error', `${mensaje}`, 'error');
                 });
             }
-            return true;
+            return true;    
         },
         limpiar() {
             this.$refs.formulario.reset();

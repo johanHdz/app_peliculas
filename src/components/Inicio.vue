@@ -175,12 +175,18 @@ export default{
   },
   methods: {
     async obtenerPeliculas() {
+      const token = window.localStorage.getItem('auth');
       return axios({
         method: 'get',
         url: 'http://localhost:8081/peliculas',
+        headers: {
+          Authorization: `JWT ${token}`
+          'Content-Type': 'application/json',
+        },
       })
         .then((respuesta) => {
           this.peliculas = respuesta.data.peliculas;
+          this.usuario_actual = respuesta.data.usuario_actual;
         })
         .catch(() => {
         });

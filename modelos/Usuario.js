@@ -20,3 +20,15 @@ module.exports.crearUsuario = (nuevoUsuario, callback) => {
         }); 
     });
 };
+
+module.exports.obtenerUsuarioporEmail = (email, callback) => {
+    const consulta = { email };
+    Usuario.findOne(consulta, callback);
+};
+
+module.exports.compararContrasenia = (contraseniaCandidato, hash) => {
+    bcryptjs.compare(contraseniaCandidato, hash, (err, coinciden) => {
+        if (err) throw err;
+        else callback(null, coinciden);
+    });
+};
