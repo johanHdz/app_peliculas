@@ -30,8 +30,7 @@
         <v-card-title primary-title>
           <div>
             <div class="headline">Resident Evil: Capitulo Final</div>
-            <span class="grey--text">2016 &middot; Ciencia Ficci&oacute;n
-              /Acci&oacute;n &middot; 1h 46m</span>
+            <span class="grey--text">2016 &middot; Acción/Terror &middot; 1h 46m</span>
           </div>
         </v-card-title>
         <v-card-text>
@@ -53,8 +52,7 @@
         <v-card-title primary-title>
           <div>
             <div class="headline">Capitán América: Civil War</div>
-            <span class="grey--text">2016 &middot; Ciencia Ficci&oacute;n
-              /Acci&oacute;n &middot; 2h 28m</span>
+            <span class="grey--text">2016 &middot; Acción/Aventura &middot; 2h 28m</span>
           </div>
         </v-card-title>
         <v-card-text>
@@ -95,8 +93,7 @@
         <v-card-title primary-title>
           <div>
             <div class="headline">Talento Ocultos</div>
-            <span class="grey--text">2016 &middot; Ciencia Ficci&oacute;n
-              /Acci&oacute;n &middot; 2h 7m</span>
+            <span class="grey--text">2016 &middot; Drama/Ficción Histórica &middot; 2h 7m</span>
           </div>
         </v-card-title>
         <v-card-text>
@@ -117,8 +114,7 @@
         <v-card-title primary-title>
           <div>
             <div class="headline">Hasta el último hombre</div>
-            <span class="grey--text">2016 &middot; Ciencia Ficci&oacute;n
-              /Acci&oacute;n &middot; 2h 19m</span>
+            <span class="grey--text">2016 &middot; Bélico/Drama &middot; 2h 19m</span>
           </div>
         </v-card-title>
         <v-card-text>
@@ -175,14 +171,15 @@ export default{
   },
   methods: {
     async obtenerPeliculas() {
-      const token = window.localStorage.getItem('auth');
+      // const token = window.localStorage.getItem('auth');
       return axios({
         method: 'get',
-        url: 'http://localhost:8081/peliculas',
-        headers: {
-          Authorization: `JWT ${token}`
-          'Content-Type': 'application/json',
-        },
+        // url: 'http://localhost:8081/peliculas',
+        url: '/peliculas',
+        // headers: {
+        //   Authorization: `JWT ${token}`,
+        //   'Content-Type': 'application/json',
+        // },
       })
         .then((respuesta) => {
           this.peliculas = respuesta.data.peliculas;

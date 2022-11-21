@@ -79,7 +79,8 @@ export default{
             },
           })
             .then(() => {
-              this.$swal(`Gracias por calificar ${estado.nota}`, 'success');
+              this.$swal('CineStack', `Gracias por calificar esta película: ${estado.nota}`,
+                'success');
             })
             .catch((er) => {
               // const msj = error.response.data.message;
@@ -90,6 +91,7 @@ export default{
     async obtenerPelicula() {
       return axios({
         method: 'get',
+        // url: `http://localhost:8081/peliculas/${this.$route.params.id}`,
         url: `/peliculas/${this.$route.params.id}`,
       })
         .then((respuesta) => {

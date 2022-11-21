@@ -80,6 +80,7 @@ export default {
             anio_pub: this.anio_pub,
             genero: this.genero,
           },
+          // url: 'http://localhost:8081/peliculas',
           url: '/peliculas',
           headers: {
             'Content-Type': 'application/json',
@@ -89,7 +90,7 @@ export default {
             this.$swal(
               'Excelente',
               'Película agregada satisfactoriamente',
-              'Success',
+              'success',
             );
             this.$router.push({ name: 'Inicio' });
             this.$refs.form.reset();
