@@ -14,7 +14,7 @@ module.exports.controller = (app) => {
     (accesToken, refreshToken, perfil, cb) => {
         // Controllar login con facebook
         const email = perfi.emails[0].value;
-        Usuario.obtenerUsuarioPorEmail(email, (err, usuario) => {
+        Usuario.obtenerUsuarioporEmail(email, (err, usuario) => {
             if (!usuario) {
                 const nuevoUsuario = new Usuario({
                     nombre: perfil.displayName,
