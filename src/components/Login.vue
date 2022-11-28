@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="login">
-      <a class="btn facebook" href="/login/facebook">Login usando Facebook</a>
+      <a class="btn facebook" href="/login/facebook">Login con Facebook</a>
+      <a class="btn google" href="/login/google">Login con Google</a>
+      <a class="btn linkedin" href="/login/linkedin">Login con LinkedIn</a>
     </div>
     <v-form v-model="valido" ref="formulario" lazy-validation>
       <v-text-field

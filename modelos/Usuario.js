@@ -4,7 +4,8 @@ const Esquema = mongoose.Schema;
 const EsquemaUsuario = new Esquema({
     nombre: String,
     email: String,
-    contrasenia: String
+    contrasenia: String,
+    idExterno: String,
 });
 
 const Usuario = mongoose.model('Usuario', EsquemaUsuario);

@@ -19,7 +19,7 @@ module.exports.controller = (app) => {
                 const nuevoUsuario = new Usuario({
                     nombre: perfil.displayName,
                     email: email,
-                    facebookId: perfil.id,
+                    idExterno: perfil.id,
                 });
                 Usuario.crearUsuario(nuevoUsuario, (error) => {
                     if (error) {
